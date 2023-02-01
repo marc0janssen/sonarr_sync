@@ -161,7 +161,7 @@ class sonarrSync():
                     try:
                         if not self.dry_run:
                             dest.add(
-                                1,
+                                4,
                                 1,
                                 1,
                                 "firstSeason",
