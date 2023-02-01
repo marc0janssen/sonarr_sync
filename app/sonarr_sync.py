@@ -34,16 +34,21 @@ class sonarrSync():
             with open(self.config_filePath, "r") as f:
                 f.close()
             try:
-                self.config = configparser.ConfigParser()
+                self.conself.sonarrsource_rootfolderfig = \
+                    configparser.ConfigParser()
                 self.config.read(self.config_filePath)
 
                 # SONARR_SOURCE
                 self.sonarrsource_url = self.config['SONARR_SOURCE']['URL']
                 self.sonarrsource_token = self.config['SONARR_SOURCE']['TOKEN']
+                self.sonarrsource_rootfolder = \
+                    int(self.config['SONARR_SOURCE']['ROOTFOLDER'])
 
                 # SONARR_DESTINATION
                 self.sonarrdest_url = self.config['SONARR_DEST']['URL']
                 self.sonarrdest_token = self.config['SONARR_DEST']['TOKEN']
+                self.sonarrdest_rootfolder = \
+                    int(self.config['SONARR_DEST']['ROOTFOLDER'])
 
                 # SYNC
                 self.dry_run = True if (
@@ -161,8 +166,8 @@ class sonarrSync():
                     try:
                         if not self.dry_run:
                             dest.add(
-                                4,
-                                1,
+                                self.sonarrdest_rootfolder,
+                                self.sonarrsource_rootfolder,
                                 1,
                                 "firstSeason",
                                 True,
