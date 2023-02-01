@@ -34,7 +34,7 @@ class sonarrSync():
             with open(self.config_filePath, "r") as f:
                 f.close()
             try:
-                self.conself.sonarrsource_rootfolderfig = \
+                self.config = \
                     configparser.ConfigParser()
                 self.config.read(self.config_filePath)
 
