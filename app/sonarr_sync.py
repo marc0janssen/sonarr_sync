@@ -49,6 +49,19 @@ class sonarrSync():
                     int(self.config['SONARR_DEST']['ROOTFOLDER'])
                 self.sonarrdest_qualityprofile = \
                     int(self.config['SONARR_DEST']['QUALITYPROFILE'])
+                self.sonarrdest_languageprofile = \
+                    int(self.config['SONARR_DEST']['LANGUAGEPROFILE'])
+                self.sonarrdest_monitor = self.config['SONARR_DEST']['MONITOR']
+                self.sonarrdest_seasonfolder = True if (
+                    self.config['SONARR_DEST']['SEASONFOLDER'] == "ON") \
+                    else False
+                self.sonarrdest_search = True if (
+                    self.config['SONARR_DEST']['SEARCH'] == "ON") else False
+                self.sonarrdest_unmetsearch = True if (
+                    self.config['SONARR_DEST']['UNMETSEARCH'] == "ON") \
+                    else False
+                self.sonarrdest_seriestype = \
+                    self.config['SONARR_DEST']['SERIESTYPE']
 
                 # SYNC
                 self.dry_run = True if (
@@ -168,12 +181,12 @@ class sonarrSync():
                             dest.add(
                                 self.sonarrdest_rootfolder,
                                 self.sonarrdest_qualityprofile,
-                                1,
-                                "firstSeason",
-                                True,
-                                True,
-                                True,
-                                "standard",
+                                self.sonarrdest_languageprofile,
+                                self.sonarrdest_monitor,
+                                self.sonarrdest_seasonfolder,
+                                self.sonarrdest_search,
+                                self.sonarrdest_unmetsearch,
+                                self.sonarrdest_seriestype,
                                 source.tags
                             )
 
