@@ -47,6 +47,8 @@ class sonarrSync():
                 self.sonarrdest_token = self.config['SONARR_DEST']['TOKEN']
                 self.sonarrdest_rootfolder = \
                     int(self.config['SONARR_DEST']['ROOTFOLDER'])
+                self.sonarrdest_qualityprofile = \
+                    int(self.config['SONARR_DEST']['QUALITYPROFILE'])
 
                 # SYNC
                 self.dry_run = True if (
@@ -165,7 +167,7 @@ class sonarrSync():
                         if not self.dry_run:
                             dest.add(
                                 self.sonarrdest_rootfolder,
-                                1,
+                                self.sonarrdest_qualityprofile,
                                 1,
                                 "firstSeason",
                                 True,
