@@ -41,8 +41,6 @@ class sonarrSync():
                 # SONARR_SOURCE
                 self.sonarrsource_url = self.config['SONARR_SOURCE']['URL']
                 self.sonarrsource_token = self.config['SONARR_SOURCE']['TOKEN']
-                self.sonarrsource_rootfolder = \
-                    int(self.config['SONARR_SOURCE']['ROOTFOLDER'])
 
                 # SONARR_DESTINATION
                 self.sonarrdest_url = self.config['SONARR_DEST']['URL']
@@ -167,7 +165,7 @@ class sonarrSync():
                         if not self.dry_run:
                             dest.add(
                                 self.sonarrdest_rootfolder,
-                                self.sonarrsource_rootfolder,
+                                1,
                                 1,
                                 "firstSeason",
                                 True,
