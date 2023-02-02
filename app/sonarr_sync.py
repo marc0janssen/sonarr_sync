@@ -190,6 +190,13 @@ class sonarrSync():
                                 source.tags
                             )
 
+                    except exceptions.Invalid as e:
+                        logging.error(
+                                    f"{e} "
+                                    f"Exiting script with an error."
+                                )
+                        sys.exit()
+
                     except exceptions.Exists:
                         logging.warning(
                                     f"Series {source.title}({source.year})"
