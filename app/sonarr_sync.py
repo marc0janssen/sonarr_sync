@@ -240,7 +240,7 @@ class sonarrSync():
 
                     except exceptions.NotFound:
                         logging.warning(
-                                    f"Series {dest.title}({dest.year})"
+                                    f"Series {destination.title}({destination.year})"
                                     f" doesn't exists on destination.")
 
             else:
