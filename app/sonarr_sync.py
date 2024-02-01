@@ -172,7 +172,8 @@ class sonarrSync():
                 if not dest.id:
                     boolSynced = True
                     txtMsg = (
-                        f"Syncing the series: {source.title}({source.year})")
+                        f"Sync - Syncing the series: "
+                        f"{source.title}({source.year})")
                     self.writeLog(False, f"{txtMsg}\n")
                     logging.info(txtMsg)
 
@@ -225,7 +226,8 @@ class sonarrSync():
                 if not source.id:
                     boolSynced = True
                     txtMsg = (
-                        f"Deleting the series: {source.title}({source.year})")
+                        f"Sync - Deleting the series: "
+                        f"{source.title}({source.year})")
                     self.writeLog(False, f"{txtMsg}\n")
                     logging.info(txtMsg)
 
@@ -240,7 +242,8 @@ class sonarrSync():
 
                     except exceptions.NotFound:
                         logging.warning(
-                                    f"Series {destination.title}({destination.year})"
+                                    f"Series {destination.title}"
+                                    f"({destination.year})"
                                     f" doesn't exists on destination.")
 
             else:
