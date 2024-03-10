@@ -21,7 +21,7 @@ class sonarrSync():
 
         config_dir = "/config/"
         app_dir = "/app/"
-        log_dir = "/logging/"
+        log_dir = "/logging/sync/"
 
         self.config_file = "sonarr_sync.ini"
         self.exampleconfigfile = "sonarr_sync.ini.example"
