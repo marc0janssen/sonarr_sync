@@ -214,7 +214,7 @@ class sonarrSync():
             else:
                 boolFound = False
 
-            time.sleep(0.5)
+            time.sleep(0.2)
 
         self.sourceMedia = self.sonarrsourceNode.all_series()
         self.destMedia = self.sonarrdestNode.all_series()
