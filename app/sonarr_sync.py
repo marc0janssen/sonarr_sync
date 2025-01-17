@@ -7,6 +7,7 @@ import logging
 import sys
 import configparser
 import shutil
+import time
 
 from datetime import datetime
 from arrapi import SonarrAPI, exceptions
@@ -212,6 +213,8 @@ class sonarrSync():
 
             else:
                 boolFound = False
+
+            time.sleep(0.5)
 
         self.sourceMedia = self.sonarrsourceNode.all_series()
         self.destMedia = self.sonarrdestNode.all_series()
