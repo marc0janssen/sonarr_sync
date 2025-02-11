@@ -132,8 +132,11 @@ class sonarrSync():
             logging.error(
                 f"Can't connect to Sonarr source {e}"
             )
-
             sys.exit()
+        except Exception as e:
+            logging.error(
+                f"Unexpected error connecting Sonarr Source: {e}")
+            sys.exit(1)
 
         # Connect to Sonarr Destination
         try:
@@ -143,8 +146,11 @@ class sonarrSync():
             logging.error(
                 f"Can't connect to Sonarr destination {e}"
             )
-
             sys.exit()
+        except Exception as e:
+            logging.error(
+                f"Unexpected error connecting Sonarr destination: {e}")
+            sys.exit(1)
 
         if self.dry_run:
             logging.info(
